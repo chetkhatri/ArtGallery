@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/css"  src="/static/main.css" ></script>
+    <title>ASCII Art Gallery By Chetan Khatri</title>
+</head>
+
+<style type="text/css">
+    body {
+        font-family: sans-serif;
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+</style>
+
+<body>
+
+    <h1>ASCII Art Gallery</h1>
+	<p>Art Gallery is tiny blog for posting ASCII based Art</p>
+	<div style="text-align:right;color:red"><p>&copy; Chetan Khatri</p></div>
+    <form method="post">
+	
+	<div class="error" style="color:red">{{error}}</div>
+		
+        <label>
+            <div>Title</div>
+            <input type="text" name="title" value="{{title}}">
+        </label>
+
+        <label>
+            <div>Art</div>
+            <textarea name="art" >{{art}}</textarea>
+        </label>
+
+        
+<br/>
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    {% for art in arts %}
+        <div class="art">
+            <div class="art-title" style="color:blue">{{art.title}}</div>
+            <pre class="art-body">{{art.art}}</pre>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
